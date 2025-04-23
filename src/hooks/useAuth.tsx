@@ -10,7 +10,12 @@ export function useAuth() {
       method: "POST",
       body: JSON.stringify({ email, password }),
     });
+    
     localStorage.setItem("authToken", res.token || "");
+    localStorage.setItem("email", res.email);
+    localStorage.setItem("name", res.name);
+    localStorage.setItem("role", res.role);
+    
     setUser({ email: res.email, name: res.name, role: res.role });
     return res;
   };
@@ -25,6 +30,9 @@ export function useAuth() {
 
   const logout = () => {
     localStorage.removeItem("authToken");
+    localStorage.removeItem("email");
+    localStorage.removeItem("name");
+    localStorage.removeItem("role");
     setUser(null);
     window.location.href = "/login";
   };
