@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Patients from "./pages/Patients";
 
 const queryClient = new QueryClient();
 
@@ -23,7 +23,8 @@ const App = () => (
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          {/* Future: add admin/patient/doctor routes */}
+          <Route path="/patients" element={<Patients />} />
+          {/* Future: add admin/patient/doctor routes and more entity pages */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

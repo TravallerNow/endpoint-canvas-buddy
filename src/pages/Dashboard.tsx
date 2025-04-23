@@ -1,7 +1,7 @@
-
 import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const roleViews: Record<string, JSX.Element> = {
   patient: <PatientDashboard />,
@@ -10,13 +10,34 @@ const roleViews: Record<string, JSX.Element> = {
 };
 
 function PatientDashboard() {
-  return <div>Welcome! You can book/view appointments, view doctors, and edit your info here.</div>;
+  return (
+    <div>
+      Welcome! You can book/view appointments, view doctors, and edit your info here.
+      <div className="mt-4">
+        <Link to="/patients" className="text-primary underline font-semibold">My Profile</Link>
+      </div>
+    </div>
+  );
 }
 function DoctorDashboard() {
-  return <div>Welcome! You can view/manage your appointments, slots, and patients.</div>;
+  return (
+    <div>
+      Welcome! You can view/manage your appointments, slots, and patients.
+      <div className="mt-4">
+        <Link to="/patients" className="text-primary underline font-semibold">Manage Patients</Link>
+      </div>
+    </div>
+  );
 }
 function AdminDashboard() {
-  return <div>Welcome Admin! You can manage doctors, patients, slots, appointments, and users.</div>;
+  return (
+    <div>
+      Welcome Admin! You can manage doctors, patients, slots, appointments, and users.
+      <div className="mt-4 flex gap-4">
+        <Link to="/patients" className="text-primary underline font-semibold">Patients</Link>
+      </div>
+    </div>
+  );
 }
 
 export default function Dashboard() {
