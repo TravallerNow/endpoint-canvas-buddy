@@ -3,15 +3,22 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Calendar } from "lucide-react";
 
 function PatientDashboard() {
   return (
-    <div>
-      Welcome! You can book/view appointments, view doctors, and edit your info here.
-      <div className="mt-4 flex gap-4">
+    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <h3 className="text-xl font-medium mb-4">Patient Dashboard</h3>
+      <p className="text-gray-600 mb-6">
+        Welcome! You can book/view appointments, view doctors, and edit your info here.
+      </p>
+      <div className="mt-6 flex flex-wrap gap-4">
         <Link to="/patients" className="text-primary underline font-semibold">My Profile</Link>
-        <Button asChild>
-          <Link to="/appointments">Book Appointment</Link>
+        <Button asChild className="bg-primary">
+          <Link to="/appointments">
+            <Calendar className="mr-2" />
+            Book Appointment
+          </Link>
         </Button>
       </div>
     </div>
@@ -20,19 +27,26 @@ function PatientDashboard() {
 
 function DoctorDashboard() {
   return (
-    <div>
-      Welcome! You can view/manage your appointments, slots, and patients.
-      <div className="mt-4">
+    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <h3 className="text-xl font-medium mb-4">Doctor Dashboard</h3>
+      <p className="text-gray-600 mb-6">
+        Welcome! You can view/manage your appointments, slots, and patients.
+      </p>
+      <div className="mt-6 flex flex-wrap gap-4">
         <Link to="/patients" className="text-primary underline font-semibold">Manage Patients</Link>
       </div>
     </div>
   );
 }
+
 function AdminDashboard() {
   return (
-    <div>
-      Welcome Admin! You can manage doctors, patients, slots, appointments, and users.
-      <div className="mt-4 flex gap-4">
+    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+      <h3 className="text-xl font-medium mb-4">Admin Dashboard</h3>
+      <p className="text-gray-600 mb-6">
+        Welcome Admin! You can manage doctors, patients, slots, appointments, and users.
+      </p>
+      <div className="mt-6 flex flex-wrap gap-4">
         <Link to="/patients" className="text-primary underline font-semibold">Patients</Link>
       </div>
     </div>
