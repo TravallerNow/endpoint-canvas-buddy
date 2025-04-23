@@ -1,24 +1,23 @@
+
 import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-const roleViews: Record<string, JSX.Element> = {
-  patient: <PatientDashboard />,
-  doctor: <DoctorDashboard />,
-  admin: <AdminDashboard />
-};
-
 function PatientDashboard() {
   return (
     <div>
       Welcome! You can book/view appointments, view doctors, and edit your info here.
-      <div className="mt-4">
+      <div className="mt-4 flex gap-4">
         <Link to="/patients" className="text-primary underline font-semibold">My Profile</Link>
+        <Button asChild>
+          <Link to="/appointments">Book Appointment</Link>
+        </Button>
       </div>
     </div>
   );
 }
+
 function DoctorDashboard() {
   return (
     <div>
@@ -39,6 +38,12 @@ function AdminDashboard() {
     </div>
   );
 }
+
+const roleViews: Record<string, JSX.Element> = {
+  patient: <PatientDashboard />,
+  doctor: <DoctorDashboard />,
+  admin: <AdminDashboard />
+};
 
 export default function Dashboard() {
   const { user, setUser, logout } = useAuth();
